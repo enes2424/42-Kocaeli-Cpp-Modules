@@ -22,25 +22,25 @@
 
 </td></tr>
 
-[cpp00_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules
+[cpp00_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules/tree/42-Kocaeli-Cpp-0
 [cpp00_badge]: https://custom-icon-badges.demolab.com/badge/✔%EF%B8%8E%20100%20/%20100-02b331.svg?&style=for-the-badge&color=018f27
-[cpp01_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules
+[cpp01_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules/tree/42-Kocaeli-Cpp-1
 [cpp01_badge]: https://custom-icon-badges.demolab.com/badge/✔%EF%B8%8E%20100%20/%20100-02b331.svg?&style=for-the-badge&color=018f27
-[cpp02_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules
+[cpp02_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules/tree/42-Kocaeli-Cpp-2
 [cpp02_badge]: https://custom-icon-badges.demolab.com/badge/✔%EF%B8%8E%20100%20/%20100-02b331.svg?&style=for-the-badge&color=018f27
-[cpp03_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules
+[cpp03_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules/tree/42-Kocaeli-Cpp-3
 [cpp03_badge]: https://custom-icon-badges.demolab.com/badge/✔%EF%B8%8E%20100%20/%20100-02b331.svg?&style=for-the-badge&color=018f27
-[cpp04_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules
+[cpp04_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules/tree/42-Kocaeli-Cpp-4
 [cpp04_badge]: https://custom-icon-badges.demolab.com/badge/✔%EF%B8%8E%20100%20/%20100-02b331.svg?&style=for-the-badge&color=018f27
-[cpp05_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules
+[cpp05_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules/tree/42-Kocaeli-Cpp-5
 [cpp05_badge]: https://custom-icon-badges.demolab.com/badge/✔%EF%B8%8E%20100%20/%20100-02b331.svg?&style=for-the-badge&color=018f27
-[cpp06_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules
+[cpp06_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules/tree/42-Kocaeli-Cpp-6
 [cpp06_badge]: https://custom-icon-badges.demolab.com/badge/✔%EF%B8%8E%20100%20/%20100-02b331.svg?&style=for-the-badge&color=018f27
-[cpp07_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules
+[cpp07_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules/tree/42-Kocaeli-Cpp-7
 [cpp07_badge]: https://custom-icon-badges.demolab.com/badge/✔%EF%B8%8E%20100%20/%20100-02b331.svg?&style=for-the-badge&color=018f27
-[cpp08_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules
+[cpp08_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules/tree/42-Kocaeli-Cpp-8
 [cpp08_badge]: https://custom-icon-badges.demolab.com/badge/✔%EF%B8%8E%20100%20/%20100-02b331.svg?&style=for-the-badge&color=018f27
-[cpp09_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules
+[cpp09_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules/tree/42-Kocaeli-Cpp-9
 [cpp09_badge]: https://custom-icon-badges.demolab.com/badge/✔%EF%B8%8E%20100%20/%20100-02b331.svg?&style=for-the-badge&color=018f27
 
 </table>
