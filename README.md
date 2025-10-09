@@ -6,9 +6,10 @@ Bu proje, 42 Okulu C++ eğitiminin birinci modülüdür. C++ programlama dilinde
 ## 📚 Egzersizler
 
 ### ex00 - BraiiiiiiinnnzzzZ
-**Dosyalar:** `ex00/Zombie.hpp`, `ex00/Zombie.cpp`, `ex00/newZombie.cpp`, `ex00/randomChump.cpp`, `ex00/main.cpp`
+**Dosyalar:** `ex00/Zombie.hpp`, `ex00/Zombie.cpp`, `ex00/newZombie.cpp`, `ex00/randomChump.cpp`, `ex00/main.cpp`, `ex00/Makefile`
 
 Stack ve Heap bellek yönetimini öğreten temel Zombie sınıfı implementasyonu.
+- **Program:** `BraiiiiiiinnnzzzZ`
 - **Sınıf:** `Zombie`
 - **Üye fonksiyonlar:** 
   - `Zombie(std::string name)` - Constructor
@@ -18,22 +19,25 @@ Stack ve Heap bellek yönetimini öğreten temel Zombie sınıfı implementasyon
   - `Zombie* newZombie(std::string name)` - Heap'te zombie oluşturur
   - `void randomChump(std::string name)` - Stack'te zombie oluşturur
 - **Öğretilen kavramlar:** Stack vs Heap bellek yönetimi, constructor/destructor
-- **Çıktı örneği:**
-  ```
-  ----->> Stack Memory <<-----
-  Necmettin: BraiiiiiiinnnzzzZ...
-  Husamettin: BraiiiiiiinnnzzzZ...
-  Husamettin died!
-  ----->> Heap Memory <<-----
-  Fahriye: BraiiiiiiinnnzzzZ...
-  Fahriye died!
-  Necmettin died!
+- **Örnek:**
+  ```bash
+  ./BraiiiiiiinnnzzzZ
+  # Çıktı:
+  # ----->> Stack Memory <<-----
+  # Necmettin: BraiiiiiiinnnzzzZ...
+  # Husamettin: BraiiiiiiinnnzzzZ...
+  # Husamettin died!
+  # ----->> Heap Memory <<-----
+  # Fahriye: BraiiiiiiinnnzzzZ...
+  # Fahriye died!
+  # Necmettin died!
   ```
 
 ### ex01 - Moar brainz!
-**Dosyalar:** `ex01/Zombie.hpp`, `ex01/Zombie.cpp`, `ex01/zombieHorde.cpp`, `ex01/main.cpp`
+**Dosyalar:** `ex01/Zombie.hpp`, `ex01/Zombie.cpp`, `ex01/zombieHorde.cpp`, `ex01/main.cpp`, `ex01/Makefile`
 
 Zombie arraylerinin dinamik olarak oluşturulması ve yönetimi.
+- **Program:** `Moarbrainz`
 - **Sınıf:** `Zombie` (genişletilmiş versiyon)
 - **Yeni özellikler:**
   - `Zombie(void)` - Default constructor
@@ -41,18 +45,22 @@ Zombie arraylerinin dinamik olarak oluşturulması ve yönetimi.
 - **Ana fonksiyon:** `Zombie* zombieHorde(int N, std::string name)`
 - **Açıklama:** N adet zombie'den oluşan bir array oluşturur ve hepsine aynı ismi verir
 - **Öğretilen kavramlar:** Dinamik array allocation, default constructor, object initialization
-- **Örnek kullanım:**
-  ```cpp
-  Zombie* zombies = zombieHorde(10, "Loream Ipsum");
-  for (int i = 0; i < 10; i++)
-      zombies[i].announce();
-  delete[] zombies;
+- **Örnek:**
+  ```bash
+  ./Moarbrainz
+  # Çıktı:
+  # Loream Ipsum: BraiiiiiiinnnzzzZ...
+  # Loream Ipsum: BraiiiiiiinnnzzzZ...
+  # ... (10 kez)
+  # Loream Ipsum died!
+  # ... (10 kez)
   ```
 
 ### ex02 - HI THIS IS BRAIN
-**Dosyalar:** `ex02/main.cpp`
+**Dosyalar:** `ex02/main.cpp`, `ex02/Makefile`
 
 Referans ve işaretçi kavramlarının temel implementasyonu.
+- **Program:** `HITHISISBRAIN`
 - **Değişkenler:**
   - `std::string str` - Orijinal string
   - `std::string *stringPTR` - String pointer
@@ -61,20 +69,23 @@ Referans ve işaretçi kavramlarının temel implementasyonu.
   - Değişkenlerin bellek adresleri
   - Değişkenlerin değerleri
 - **Öğretilen kavramlar:** Pointer vs Reference, memory addressing, dereferencing
-- **Çıktı örneği:**
-  ```
-  0x7fff5fbff5d0
-  0x7fff5fbff5d0
-  0x7fff5fbff5d0
-  HI THIS IS BRAIN
-  HI THIS IS BRAIN
-  HI THIS IS BRAIN
+- **Örnek:**
+  ```bash
+  ./HITHISISBRAIN
+  # Çıktı:
+  # 0x7fff5fbff5d0
+  # 0x7fff5fbff5d0
+  # 0x7fff5fbff5d0
+  # HI THIS IS BRAIN
+  # HI THIS IS BRAIN
+  # HI THIS IS BRAIN
   ```
 
 ### ex03 - Unnecessary violence
-**Dosyalar:** `ex03/Weapon.hpp`, `ex03/Weapon.cpp`, `ex03/HumanA.hpp`, `ex03/HumanA.cpp`, `ex03/HumanB.hpp`, `ex03/HumanB.cpp`, `ex03/main.cpp`
+**Dosyalar:** `ex03/Weapon.hpp`, `ex03/Weapon.cpp`, `ex03/HumanA.hpp`, `ex03/HumanA.cpp`, `ex03/HumanB.hpp`, `ex03/HumanB.cpp`, `ex03/main.cpp`, `ex03/Makefile`
 
 Referans ve işaretçi kullanımının pratik uygulaması - savaşçı ve silah sistemi.
+- **Program:** `GereksizSiddet`
 - **Weapon Sınıfı:**
   - `Weapon(std::string type)` - Constructor
   - `const std::string &getType()` - Getter (reference döndürür)
@@ -87,18 +98,21 @@ Referans ve işaretçi kullanımının pratik uygulaması - savaşçı ve silah 
   - `void setWeapon(Weapon &weapon)` - Sonradan silah set etme
   - `void attack(void)` - Saldırı fonksiyonu
 - **Öğretilen kavramlar:** Reference vs Pointer kullanım senaryoları, object composition
-- **Çıktı örneği:**
-  ```
-  Bob attacks with their crude spiked club
-  Bob attacks with their some other type of club
-  Jim attacks with their crude spiked club
-  Jim attacks with their some other type of club
+- **Örnek:**
+  ```bash
+  ./GereksizSiddet
+  # Çıktı:
+  # Bob attacks with their crude spiked club
+  # Bob attacks with their some other type of club
+  # Jim attacks with their crude spiked club
+  # Jim attacks with their some other type of club
   ```
 
 ### ex04 - Sed is for losers
-**Dosyalar:** `ex04/main.cpp`
+**Dosyalar:** `ex04/main.cpp`, `ex04/Makefile`
 
 Dosya işlemleri ve string replacement uygulaması.
+- **Program:** `UzulmekKaybedenlerIcindir`
 - **Parametreler:** 
   - `filename` - İşlenecek dosya
   - `s1` - Aranacak string
@@ -110,15 +124,19 @@ Dosya işlemleri ve string replacement uygulaması.
   - `std::string::find()` - String arama
   - `std::string::substr()` - String kesme
 - **Öğretilen kavramlar:** File I/O, string manipulation, command line arguments
-- **Kullanım:**
+- **Örnek:**
   ```bash
-  ./UzulmekKaybedenlerIcindir filename "old_text" "new_text"
+  echo "Hello world, hello C++" > test.txt
+  ./UzulmekKaybedenlerIcindir test.txt "hello" "hi"
+  cat test.txt.replace
+  # Çıktı: Hello world, hi C++
   ```
 
 ### ex05 - Harl 2.0
-**Dosyalar:** `ex05/Harl.hpp`, `ex05/Harl.cpp`, `ex05/main.cpp`
+**Dosyalar:** `ex05/Harl.hpp`, `ex05/Harl.cpp`, `ex05/main.cpp`, `ex05/Makefile`
 
 Member function pointer'ları kullanarak log level sistemi.
+- **Program:** `Harl2.0`
 - **Harl Sınıfı:**
   - `void (Harl::*functions[4])(void)` - Function pointer array
   - `std::string arr[4]` - Level isimleri
@@ -130,84 +148,98 @@ Member function pointer'ları kullanarak log level sistemi.
   - **WARNING:** "Bence bedavaya fazladan pastırma yemeyi hak ediyorum..."
   - **ERROR:** "Bu kabul edilemez! Şimdi müdürle konuşmak istiyorum."
 - **Öğretilen kavramlar:** Member function pointers, array of function pointers
+- **Örnek:**
+  ```bash
+  ./Harl2.0
+  # Çıktı: Tüm log level'ları sırasıyla
+  ```
 
 ### ex06 - Harl filter
-**Dosyalar:** `ex06/Harl.hpp`, `ex06/Harl.cpp`, `ex06/main.cpp`
+**Dosyalar:** `ex06/Harl.hpp`, `ex06/Harl.cpp`, `ex06/main.cpp`, `ex06/Makefile`
 
 Switch-case yapısı kullanarak log level filtreleme sistemi.
+- **Program:** `harlFilter`
 - **Harl Sınıfı:** ex05'teki sınıfın genişletilmiş versiyonu
 - **Yeni özellik:** `std::string getStr(int index)` - Array elemanlarına erişim
 - **Ana özellik:** Verilen level'dan başlayarak tüm üst level'ları gösterir
 - **Switch-case fallthrough:** Break statement'lar olmadan cascading behavior
 - **Öğretilen kavramlar:** Switch-case fallthrough, command line argument validation
-- **Kullanım:**
+- **Örnek:**
   ```bash
-  ./harlFilter DEBUG    # Tüm level'ları gösterir
-  ./harlFilter WARNING  # WARNING ve ERROR'ı gösterir
-  ./harlFilter INVALID  # "Probably complaining about insignificant problems"
-  ```
-- **Çıktı formatı:**
-  ```
-  [DEBUG]
-  7XL-çift peynirli-üçlü turşu-özel-ketçaplı burgerime...
-  [INFO]
-  Ekstra domuz pastırması eklemenin daha fazla paraya...
-  [WARNING]
-  Bence bedavaya fazladan pastırma yemeyi hak ediyorum...
-  [ERROR]
-  Bu kabul edilemez! Şimdi müdürle konuşmak istiyorum.
+  ./harlFilter DEBUG
+  # Çıktı:
+  # [DEBUG]
+  # 7XL-çift peynirli-üçlü turşu-özel-ketçaplı burgerime...
+  # [INFO]
+  # Ekstra domuz pastırması eklemenin daha fazla paraya...
+  # [WARNING]
+  # Bence bedavaya fazladan pastırma yemeyi hak ediyorum...
+  # [ERROR]
+  # Bu kabul edilemez! Şimdi müdürle konuşmak istiyorum.
+  
+  ./harlFilter WARNING
+  # Çıktı: WARNING ve ERROR level'ları
+  
+  ./harlFilter INVALID
+  # Çıktı: [ Probably complaining about insignificant problems ]
   ```
 
 ## 🔧 Kullanım
 
-### C++ Derleyici Gereksinimleri
+### C++ Derleyici Kurulumu
 ```bash
-# GNU Compiler Collection
+# Ubuntu/Debian
 sudo apt-get install g++
-
-# Clang (alternatif)
-sudo apt-get install clang++
 
 # macOS (Xcode Command Line Tools)
 xcode-select --install
+
+# CentOS/RHEL
+sudo yum install gcc-c++
 ```
 
 ### Derleme ve Çalıştırma
 ```bash
-# Her egzersiz için
-cd ex00/
+# ex00 - BraiiiiiiinnnzzzZ
+cd ex00
 make
 ./BraiiiiiiinnnzzzZ
 
-cd ../ex01/
+# ex01 - Moar brainz!
+cd ex01
 make
 ./Moarbrainz
 
-cd ../ex02/
+# ex02 - HI THIS IS BRAIN
+cd ex02
 make
 ./HITHISISBRAIN
 
-cd ../ex03/
+# ex03 - Unnecessary violence
+cd ex03
 make
 ./GereksizSiddet
 
-cd ../ex04/
+# ex04 - Sed is for losers
+cd ex04
 make
 ./UzulmekKaybedenlerIcindir filename "old" "new"
 
-cd ../ex05/
+# ex05 - Harl 2.0
+cd ex05
 make
 ./Harl2.0
 
-cd ../ex06/
+# ex06 - Harl filter
+cd ex06
 make
 ./harlFilter DEBUG
 ```
 
 ### Makefile Komutları
 ```bash
-make        # Derleme
-make clean  # Executable'ı temizle
+make        # Programı derle
+make clean  # Çalıştırılabilir dosyayı sil
 make re     # Temizle ve yeniden derle
 ```
 
@@ -224,7 +256,7 @@ make re     # Temizle ve yeniden derle
 9. **Object Composition**: Class'ların birbirleriyle etkileşimi
 10. **RAII Prensibi**: Resource Acquisition Is Initialization
 
-## 📋 Compilation Flags
+## 📋 C++ Standartları ve Kurallar
 
 Tüm projeler aşağıdaki bayraklarla derlenir:
 ```bash
@@ -235,24 +267,70 @@ Tüm projeler aşağıdaki bayraklarla derlenir:
 - **-Wextra**: Ekstra uyarıları etkinleştirir  
 - **-Werror**: Uyarıları hata olarak ele alır
 - **-std=c++98**: C++98 standardını kullanır
+- **Orthodox Canonical Form**: Copy constructor, assignment operator, destructor
+- **RAII Prensibi**: Resource Acquisition Is Initialization
+- **Header Guards**: `#ifndef` kullanımı ile multiple inclusion engellenmiş
+- **Coding Style**: 42 School norminette kuralları
 
-## 📋 Notlar
+## � Notlar
 
 - Tüm kod C++98 standardına uygun yazılmıştır
 - Memory leak'ler önlenmiş, her `new` için karşılık bir `delete` bulunmaktadır
 - Orthodox Canonical Form kuralları takip edilmiştir
 - Const correctness prensipleri uygulanmıştır
 - Header guard'lar kullanılarak multiple inclusion engellenmiştir
+- Exception handling henüz kapsamda değildir
+- STL container'ları bu modülde kullanılmamaktadır
 
-## 🔍 Test Önerileri
+## 🔍 Test Senaryoları
 
+### ex00 Test
 ```bash
-# Valgrind ile memory leak testi
-valgrind --leak-check=full ./program_name
+./BraiiiiiiinnnzzzZ
+# Stack ve Heap bellek yönetiminin doğru çalışması
+# Destructor'ların doğru sırada çağrılması
+```
 
-# CPP Check ile static analysis
-cppcheck --enable=all *.cpp
+### ex01 Test
+```bash
+./Moarbrainz
+# 10 zombie'nin oluşturulması ve isimlenmesi
+# Array'in doğru şekilde silinmesi (delete[])
+```
 
-# Address Sanitizer ile runtime checks
-g++ -fsanitize=address -g *.cpp -o program
+### ex02 Test
+```bash
+./HITHISISBRAIN
+# Pointer ve reference'ın aynı adresi göstermesi
+# Değerlerin aynı olması
+```
+
+### ex03 Test
+```bash
+./GereksizSiddet
+# HumanA'nın her zaman silahlı olması
+# HumanB'nin silahsız başlayıp sonradan silahlanması
+# Weapon değişikliklerinin yansıması
+```
+
+### ex04 Test
+```bash
+echo "Hello world hello" > test.txt
+./UzulmekKaybedenlerIcindir test.txt "hello" "hi"
+cat test.txt.replace
+# Çıktı: "Hello world hi"
+```
+
+### ex05 Test
+```bash
+./Harl2.0
+# Tüm log level'larının çalışması
+# Function pointer array'inin doğru çalışması
+```
+
+### ex06 Test
+```bash
+./harlFilter DEBUG      # Tüm level'lar
+./harlFilter WARNING    # WARNING ve ERROR
+./harlFilter INVALID    # Default mesaj
 ```
