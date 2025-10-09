@@ -1,9 +1,9 @@
+SRCS	= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
+
 C++ = c++
 RM = rm -f
 FLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = AtLeastThisBeatsCoffeeMaking
-
-SRCS	= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

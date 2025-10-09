@@ -1,9 +1,9 @@
+SRCS	= main.cpp Bureaucrat.cpp
+
 C++ = c++
 RM = rm -f
 FLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = MommyWhenIGrowUpIWantToBeABureaucrat
-
-SRCS	= main.cpp Bureaucrat.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
