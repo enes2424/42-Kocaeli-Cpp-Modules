@@ -1,28 +1,27 @@
+SRCS	= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+
 C++ = c++
 RM = rm -f
 FLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = NoYouNeedForm28BNot28C
 
-SRCS	= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
-
-BSRCS	= $(SRCS:.cpp=.o)
+OBJS	= $(SRCS:.cpp=.o)
 
 .cpp.o:
 	$(C++) $(FLAGS) -c $< -o $@
 
 all : $(NAME)
 
-$(NAME) : Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp $(BSRCS)
-		@$(C++) $(FLAGS) $(BSRCS) -o $(NAME)
+$(NAME) : Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp $(OBJS)
+		@$(C++) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean :
-	@$(RM) $(BSRCS)
+	@$(RM) $(OBJS)
 
 fclean : clean
 	@$(RM) $(NAME)
 	@$(RM) *_shrubbery
 
-re : fclean
-	make
+re : fclean all
 
 .PHONY : all clean fclean re

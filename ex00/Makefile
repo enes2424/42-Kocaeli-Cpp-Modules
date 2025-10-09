@@ -5,23 +5,22 @@ NAME = MommyWhenIGrowUpIWantToBeABureaucrat
 
 SRCS	= main.cpp Bureaucrat.cpp
 
-BSRCS	= $(SRCS:.cpp=.o)
+OBJS	= $(SRCS:.cpp=.o)
 
 .cpp.o:
 	$(C++) $(FLAGS) -c $< -o $@
 
 all : $(NAME)
 
-$(NAME) : Bureaucrat.hpp $(BSRCS)
-		$(C++) $(FLAGS) $(BSRCS) -o $(NAME)
+$(NAME) : Bureaucrat.hpp $(OBJS)
+		$(C++) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean :
-	$(RM) $(BSRCS)
+	$(RM) $(OBJS)
 
 fclean : clean
 	$(RM) $(NAME)
 
-re : fclean
-	make
+re : fclean all
 
 .PHONY : all clean fclean re
