@@ -7,7 +7,7 @@ NAME = Account
 
 all : $(NAME)
 
-$(NAME) : Account.hpp
+$(NAME) : Account.hpp $(SRCS)
 		$(C++) $(FLAGS) $(SRCS) -o $(NAME)
 
 clean :

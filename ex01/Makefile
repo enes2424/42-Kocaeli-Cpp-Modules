@@ -7,7 +7,7 @@ NAME = my_awesome_phonebook
 
 all : $(NAME)
 
-$(NAME) : my_awesome_phonebook.hpp
+$(NAME) : my_awesome_phonebook.hpp $(SRCS)
 		$(C++) $(FLAGS) $(SRCS) -o $(NAME)
 
 clean :
