@@ -1,152 +1,151 @@
-# 42 Kocaeli C++ Module 03
-## Inheritance (Kalıtım)
+# 42 Kocaeli C++ Module 04
+## Subtype Polymorphism, Abstract Classes, Interfaces (Alt Tür Polimorfizm, Soyut Sınıflar, Arayüzler)
 
-Bu proje, 42 Okulu C++ eğitiminin üçüncü modülüdür. C++ programlama dilinde kalıtım (inheritance), polimorfizm, çoklu kalıtım ve diamond problem kavramlarını öğrenmek için tasarlanmıştır.
+Bu proje, 42 Okulu C++ eğitiminin dördüncü modülüdür. Polimorfizm, sanal fonksiyonlar, soyut sınıflar, arayüzler ve derin kopyalama kavramlarını öğrenmek için tasarlanmıştır.
 
 ## 📚 Egzersizler
 
-### ex00 - Aaaaand... OPEN!
-**Dosyalar:** `ex00/ClapTrap.cpp`, `ex00/ClapTrap.hpp`, `ex00/main.cpp`, `ex00/Makefile`
+### ex00 - Polymorphism
+**Dosyalar:** `ex00/Animal.hpp`, `ex00/Animal.cpp`, `ex00/Dog.hpp`, `ex00/Dog.cpp`, `ex00/Cat.hpp`, `ex00/Cat.cpp`, `ex00/WrongAnimal.hpp`, `ex00/WrongAnimal.cpp`, `ex00/WrongCat.hpp`, `ex00/WrongCat.cpp`, `ex00/main.cpp`, `ex00/Makefile`
 
-Temel ClapTrap sınıfının implementasyonu.
-- **Program:** `AaaaandOPEN`
-- **Sınıf:** `ClapTrap`
+Temel polimorfizm ve sanal fonksiyonlar.
+- **Program:** `Polymorphism`
+- **Sınıflar:** `Animal`, `Dog`, `Cat`, `WrongAnimal`, `WrongCat`
 - **Özellikler:**
-  - Name (isim)
-  - Hit points (10) - can puanı
-  - Energy points (10) - enerji puanı  
-  - Attack damage (0) - saldırı hasarı
-- **Fonksiyonlar:**
-  - `attack(const std::string& target)` - saldırı yapar
-  - `takeDamage(unsigned int amount)` - hasar alır
-  - `beRepaired(unsigned int amount)` - kendini tamir eder
-- **Örnek:**
-  ```cpp
-  ClapTrap john("John Doe");
-  ClapTrap chuck("Chuck Norris");
+  - `Animal` sınıfı sanal `makeSound()` fonksiyonu içerir
+  - `Dog` ve `Cat` sınıfları `Animal`'dan kalıtım alır
+  - `WrongAnimal` ve `WrongCat` sanal fonksiyon kullanmaz (yanlış örnek)
+  - Polimorfizmin doğru ve yanlış kullanımını gösterir
+- **Çıktı Örneği:**
+  ```bash
+  ./Polymorphism
+  # Çıktı:
+  Dog
+  Cat
+  Cat meows
+  Dog barks
+  Animal makes a sound
   
-  john.attack("Chuck Norris");        // John saldırır
-  chuck.takeDamage(0);               // Chuck 0 hasar alır
-  chuck.beRepaired(2);               // Chuck kendini tamir eder
-  ```
-
-### ex01 - Serena, my love!
-**Dosyalar:** `ex01/ClapTrap.cpp`, `ex01/ClapTrap.hpp`, `ex01/ScavTrap.cpp`, `ex01/ScavTrap.hpp`, `ex01/main.cpp`, `ex01/Makefile`
-
-ScavTrap sınıfı - ClapTrap'den kalıtım alan gelişmiş robot.
-- **Program:** `SerenaMyLove`
-- **Sınıflar:** `ClapTrap` (base), `ScavTrap` (derived)
-- **ScavTrap Özellikleri:**
-  - Hit points (100) - can puanı
-  - Energy points (50) - enerji puanı
-  - Attack damage (20) - saldırı hasarı
-- **Yeni Fonksiyonlar:**
-  - `guardGate()` - kapı bekçisi modunu aktive eder
-  - `attack()` - override edilmiş saldırı fonksiyonu
-- **Kalıtım Özellikleri:**
-  - Public inheritance kullanımı
-  - Constructor ve destructor zincirleme
-  - Virtual olmayan fonksiyon override
-- **Örnek:**
-  ```cpp
-  ScavTrap scav("Guardian");
-  scav.attack("Enemy");              // ScavTrap saldırısı
-  scav.guardGate();                  // Kapı bekçisi modu
-  scav.takeDamage(30);               // Inherited fonksiyon
-  ```
-
-### ex02 - Repetitive work
-**Dosyalar:** `ex02/ClapTrap.cpp`, `ex02/ClapTrap.hpp`, `ex02/ScavTrap.cpp`, `ex02/ScavTrap.hpp`, `ex02/FragTrap.cpp`, `ex02/FragTrap.hpp`, `ex02/main.cpp`, `ex02/Makefile`
-
-FragTrap sınıfı - ClapTrap'den kalıtım alan başka bir robot türü.
-- **Program:** `RepetitiveWork`
-- **Sınıflar:** `ClapTrap` (base), `ScavTrap`, `FragTrap` (derived)
-- **FragTrap Özellikleri:**
-  - Hit points (100) - can puanı
-  - Energy points (100) - enerji puanı
-  - Attack damage (30) - saldırı hasarı
-- **Yeni Fonksiyonlar:**
-  - `highFivesGuys()` - yüksek beşleşme talebi
-- **Kalıtım Hiyerarşisi:**
-  - İki farklı türetilmiş sınıf
-  - Aynı base class'tan farklı özellikler
-  - Farklı başlangıç değerleri
-- **Örnek:**
-  ```cpp
-  FragTrap frag("Friendly");
-  ScavTrap scav("Guardian");
+  ~~~~WRONG~~~~
   
-  frag.highFivesGuys();             // FragTrap özel fonksiyonu
-  scav.guardGate();                 // ScavTrap özel fonksiyonu
-  frag.attack("target");            // Inherited attack
+  WrongCat
+  WrongAnimal makes a sound
   ```
 
-### ex03 - Now it's weird!
-**Dosyalar:** `ex03/ClapTrap.cpp`, `ex03/ClapTrap.hpp`, `ex03/ScavTrap.cpp`, `ex03/ScavTrap.hpp`, `ex03/FragTrap.cpp`, `ex03/FragTrap.hpp`, `ex03/DiamondTrap.cpp`, `ex03/DiamondTrap.hpp`, `ex03/main.cpp`, `ex03/Makefile`
+### ex01 - I don't want to set the world on fire
+**Dosyalar:** `ex01/Animal.hpp`, `ex01/Animal.cpp`, `ex01/Dog.hpp`, `ex01/Dog.cpp`, `ex01/Cat.hpp`, `ex01/Cat.cpp`, `ex01/Brain.hpp`, `ex01/Brain.cpp`, `ex01/WrongAnimal.hpp`, `ex01/WrongAnimal.cpp`, `ex01/WrongCat.hpp`, `ex01/WrongCat.cpp`, `ex01/main.cpp`, `ex01/Makefile`
 
-DiamondTrap sınıfı - Çoklu kalıtım ve Diamond Problem çözümü.
-- **Program:** `NowItSWeird`
-- **Sınıflar:** `ClapTrap` (base), `ScavTrap`, `FragTrap`, `DiamondTrap` (multiple inheritance)
-- **DiamondTrap Özellikleri:**
-  - Hit points: FragTrap'den (100)
-  - Energy points: ScavTrap'den (50)
-  - Attack damage: FragTrap'den (30)
-  - Private name + ClapTrap name (_clap_name suffix)
-- **Çoklu Kalıtım:**
-  - `public ScavTrap, public FragTrap`
-  - Diamond inheritance pattern
-  - Virtual inheritance kullanımı
-- **Yeni Fonksiyonlar:**
-  - `whoAmI()` - kimlik bilgilerini gösterir
-  - `attack()` - ScavTrap'in attack fonksiyonunu kullanır
-- **Diamond Problem Çözümü:**
-  - Virtual inheritance ile ambiguity çözümü
-  - Constructor initialization list
-  - Attribute inheritance seçimi
-- **Örnek:**
+Derin kopyalama ve bellek yönetimi.
+- **Program:** `IDontWantToSetTheWorldOnFire`
+- **Sınıflar:** `Animal`, `Dog`, `Cat`, `Brain`, `WrongAnimal`, `WrongCat`
+- **Özellikler:**
+  - `Brain` sınıfı 100 adet `std::string` içerir
+  - `Dog` ve `Cat` sınıfları `Brain` pointer'ı içerir
+  - Derin kopyalama (deep copy) implementasyonu
+  - Dinamik bellek yönetimi
+  - Hayvan dizisi oluşturma ve silme testi
+- **Bellek Yönetimi:**
+  - Constructor'da `new Brain()` ile bellek ayırma
+  - Destructor'da `delete brain` ile bellek temizleme
+  - Copy constructor ve assignment operator'da derin kopyalama
+- **Test Senaryosu:**
   ```cpp
-  DiamondTrap diamond("Hybrid");
-  diamond.whoAmI();                 // İsim ve ClapTrap ismini gösterir
-  diamond.attack("enemy");          // ScavTrap attack
-  diamond.guardGate();              // ScavTrap fonksiyonu
-  diamond.highFivesGuys();          // FragTrap fonksiyonu
+  Animal *animals[8];
+  for (int i = 0; i < 4; i++)
+      animals[i] = new Dog();
+  for (int i = 4; i < 8; i++)
+      animals[i] = new Cat();
+  for (int i = 0; i < 8; i++)
+      delete animals[i];
+  ```
+
+### ex02 - Abstract class
+**Dosyalar:** `ex02/Animal.hpp`, `ex02/Animal.cpp`, `ex02/Dog.hpp`, `ex02/Dog.cpp`, `ex02/Cat.hpp`, `ex02/Cat.cpp`, `ex02/Brain.hpp`, `ex02/Brain.cpp`, `ex02/WrongAnimal.hpp`, `ex02/WrongAnimal.cpp`, `ex02/WrongCat.hpp`, `ex02/WrongCat.cpp`, `ex02/main.cpp`, `ex02/Makefile`
+
+Soyut sınıflar ve saf sanal fonksiyonlar.
+- **Program:** `IDontWantToSetTheWorldOnFire`
+- **Sınıflar:** `Animal` (abstract), `Dog`, `Cat`, `Brain`, `WrongAnimal`, `WrongCat`
+- **Özellikler:**
+  - `Animal` sınıfı soyut (abstract) sınıf haline gelir
+  - `makeSound()` fonksiyonu saf sanal (pure virtual) fonksiyon: `= 0`
+  - `Animal` sınıfından doğrudan nesne oluşturulamaz
+  - Sadece türetilmiş sınıflardan nesne oluşturulabilir
+- **Soyut Sınıf Tanımı:**
+  ```cpp
+  class Animal {
+      // ...
+      virtual void makeSound(void) const = 0; // Pure virtual function
+  };
+  ```
+- **Kullanım:**
+  ```cpp
+  // Animal meta = new Animal(); // Derleme hatası!
+  const Animal* j = new Dog();    // Geçerli
+  const Animal* i = new Cat();    // Geçerli
+  ```
+
+### ex03 - Interface & recap
+**Dosyalar:** `ex03/AMateria.hpp`, `ex03/AMateria.cpp`, `ex03/Character.hpp`, `ex03/Character.cpp`, `ex03/Ice.hpp`, `ex03/Ice.cpp`, `ex03/Cure.hpp`, `ex03/Cure.cpp`, `ex03/MateriaSource.hpp`, `ex03/MateriaSource.cpp`, `ex03/main.cpp`, `ex03/Makefile`
+
+Arayüzler (interfaces) ve materia sistemi implementasyonu.
+- **Program:** `InterfaceAndrace`
+- **Sınıflar:** `AMateria` (abstract), `Ice`, `Cure`, `Character`, `MateriaSource`
+- **Arayüzler:** `ICharacter`, `IMateriaSource`
+- **Özellikler:**
+  - Materia tabanlı sihir sistemi
+  - `AMateria` soyut sınıfı ve türetilmiş `Ice`, `Cure` sınıfları
+  - `ICharacter` arayüzü ve `Character` implementasyonu
+  - `IMateriaSource` arayüzü ve `MateriaSource` implementasyonu
+  - 4 slotlı materia envanteri sistemi
+  - Clone pattern implementasyonu
+- **Materia Türleri:**
+  - **Ice:** `* shoots an ice bolt at [target] *`
+  - **Cure:** `* heals [target]'s wounds *`
+- **Arayüz Örnekleri:**
+  ```cpp
+  class ICharacter {
+      virtual ~ICharacter() {}
+      virtual std::string const & getName() const = 0;
+      virtual void equip(AMateria* m) = 0;
+      virtual void unequip(int idx) = 0;
+      virtual void use(int idx, ICharacter& target) = 0;
+  };
+  ```
+- **Kullanım Örneği:**
+  ```cpp
+  IMateriaSource* src = new MateriaSource();
+  src->learnMateria(new Ice());
+  src->learnMateria(new Cure());
+  
+  ICharacter* me = new Character("me");
+  AMateria* tmp = src->createMateria("ice");
+  me->equip(tmp);
+  me->use(0, *bob); // Ice saldırısı
   ```
 
 ## 🔧 Kullanım
 
-### C++ Derleyici Kurulumu
-```bash
-# Ubuntu/Debian
-sudo apt-get install g++
-
-# macOS (Xcode Command Line Tools)
-xcode-select --install
-
-# CentOS/RHEL
-sudo yum install gcc-c++
-```
-
 ### Derleme ve Çalıştırma
 ```bash
-# ex00 - ClapTrap
+# ex00 - Polymorphism
 cd ex00
 make
-./AaaaandOPEN
+./Polymorphism
 
-# ex01 - ScavTrap
+# ex01 - I don't want to set the world on fire
 cd ex01
 make
-./SerenaMyLove
+./IDontWantToSetTheWorldOnFire
 
-# ex02 - FragTrap  
+# ex02 - Abstract class
 cd ex02
 make
-./RepetitiveWork
+./IDontWantToSetTheWorldOnFire
 
-# ex03 - DiamondTrap
+# ex03 - Interface & recap
 cd ex03
 make
-./NowItSWeird
+./InterfaceAndrace
 ```
 
 ### Makefile Komutları
@@ -158,129 +157,115 @@ make re     # Temizle ve yeniden derle
 
 ## 🎯 Öğrenilen Kavramlar
 
-1. **Inheritance (Kalıtım)**: Base ve derived class ilişkileri
-2. **Public Inheritance**: Is-a ilişkisi ve interface inheritance
-3. **Protected Members**: Kalıtım için özel erişim seviyesi
-4. **Constructor/Destructor Chaining**: Kalıtım zincirinde nesne yaşam döngüsü
-5. **Function Overriding**: Türetilmiş sınıflarda fonksiyon yeniden tanımlama
-6. **Multiple Inheritance**: Birden fazla base class'tan kalıtım
-7. **Diamond Problem**: Çoklu kalıtımda ambiguity sorunu
-8. **Virtual Inheritance**: Diamond problem çözümü
-9. **Member Initialization List**: Constructor'da üye başlatma
-10. **Scope Resolution Operator**: `::` ile ambiguity çözümü
+1. **Polimorfizm (Polymorphism)**: Aynı arayüzle farklı davranışlar
+2. **Sanal Fonksiyonlar (Virtual Functions)**: Runtime'da çözümlenen fonksiyonlar
+3. **Saf Sanal Fonksiyonlar (Pure Virtual Functions)**: `= 0` ile tanımlanan fonksiyonlar
+4. **Soyut Sınıflar (Abstract Classes)**: En az bir saf sanal fonksiyonu olan sınıflar
+5. **Arayüzler (Interfaces)**: Sadece saf sanal fonksiyonları olan sınıflar
+6. **Derin Kopyalama (Deep Copy)**: Pointer'ların gösterdiği nesnelerin kopyalanması
+7. **Sanal Destructor**: Polimorfik sınıflarda bellek sızıntısını önleme
+8. **Clone Pattern**: Nesne kopyalama tasarım deseni
+9. **Composition**: Sınıfların başka sınıfları içermesi
+10. **Dynamic Binding**: Runtime'da fonksiyon bağlama
 
-## 📋 C++ Kalıtım Kuralları ve Prensipler
+## 📋 C++ Polimorfizm Kuralları
 
-- **C++98 Standardı**: Projede kullanılan C++ versiyonu
-- **Derleme Flags**: `-Wall -Wextra -Werror -std=c++98`
-- **Orthodox Canonical Form**: Her sınıf için tam constructor set
-- **RAII Prensibi**: Resource Acquisition Is Initialization
-- **Protected Access**: Kalıtım için uygun erişim seviyesi
-- **Constructor Order**: Base class constructor'ı önce çağrılır
-- **Destructor Order**: Derived class destructor'ı önce çağrılır
-- **Virtual Inheritance**: Diamond problem için çözüm
+### Virtual Functions
+```cpp
+class Base {
+public:
+    virtual void func() = 0;        // Pure virtual (saf sanal)
+    virtual void func2() { ... }    // Virtual function
+    virtual ~Base() { ... }         // Virtual destructor (önemli!)
+};
+```
+
+### Abstract Classes
+```cpp
+class AbstractClass {
+public:
+    virtual void pureVirtualFunc() = 0;  // En az bir saf sanal fonksiyon
+    void concreteFunc() { ... }          // Somut fonksiyon da olabilir
+};
+```
+
+### Interface Design
+```cpp
+class IInterface {
+public:
+    virtual ~IInterface() {}           // Virtual destructor
+    virtual void method1() = 0;        // Sadece saf sanal fonksiyonlar
+    virtual int method2() = 0;
+};
+```
+
+### Deep Copy Implementation
+```cpp
+class MyClass {
+private:
+    SomeClass* ptr;
+public:
+    MyClass(const MyClass& other) {
+        ptr = new SomeClass(*other.ptr);  // Deep copy
+    }
+    MyClass& operator=(const MyClass& other) {
+        if (this != &other) {
+            delete ptr;
+            ptr = new SomeClass(*other.ptr);
+        }
+        return *this;
+    }
+};
+```
 
 ## 🔍 Test Senaryoları
 
 ### ex00 Test
 ```bash
-./AaaaandOPEN
-# ClapTrap nesnelerinin oluşturulması
-# Saldırı, hasar alma ve tamir fonksiyonları
-# Energy points tükenmesi durumu
-# Copy constructor ve assignment operator
+# Virtual function çalışması
+# Doğru polimorfik davranış
+# WrongAnimal ile karşılaştırma
 ```
 
-### ex01 Test  
+### ex01 Test
 ```bash
-./SerenaMyLove
-# ScavTrap nesnelerinin oluşturulması
-# Kalıtım zincirine göre constructor/destructor çağrıları
-# guardGate() özel fonksiyonunun çalışması
-# Override edilmiş attack() fonksiyonunun kullanımı
+# Brain nesnelerinin doğru oluşturulması
+# Deep copy'nin çalışması
+# Memory leak kontrolü
+# Array of animals test
 ```
 
 ### ex02 Test
 ```bash
-./RepetitiveWork
-# FragTrap ve ScavTrap nesnelerinin oluşturulması
-# İki farklı derived class'ın aynı anda kullanımı
-# highFivesGuys() özel fonksiyonunun çalışması
-# Farklı başlangıç değerlerinin kontrolü
+# Abstract class'tan nesne oluşturma denemesi (hata vermeli)
+# Sadece derived class'lardan nesne oluşturma
+# Polimorfik davranış kontrolü
 ```
 
 ### ex03 Test
 ```bash
-./NowItSWeird
-# DiamondTrap çoklu kalıtım yapısının çalışması
-# whoAmI() fonksiyonuyla kimlik kontrolü
-# Her iki parent class fonksiyonlarına erişim
-# Diamond inheritance'ın doğru çalışması
-# Constructor/destructor çağırma sırası
+# Materia yaratma ve öğrenme
+# Character'e materia takma/çıkarma
+# Materia kullanma (ice/cure)
+# Interface implementasyonu kontrolü
 ```
-
-## 📊 Sınıf Hiyerarşisi
-
-```
-ClapTrap (Base Class)
-├── ScavTrap (Public Inheritance)
-├── FragTrap (Public Inheritance)
-└── DiamondTrap (Multiple Inheritance)
-    ├── ScavTrap (Virtual Inheritance)
-    └── FragTrap (Virtual Inheritance)
-```
-
-## 📝 Sınıf Özellikleri Tablosu
-
-| Sınıf | Hit Points | Energy Points | Attack Damage | Özel Fonksiyonlar |
-|-------|------------|---------------|---------------|-------------------|
-| ClapTrap | 10 | 10 | 0 | attack, takeDamage, beRepaired |
-| ScavTrap | 100 | 50 | 20 | guardGate, attack (override) |
-| FragTrap | 100 | 100 | 30 | highFivesGuys |
-| DiamondTrap | 100 (FragTrap) | 50 (ScavTrap) | 30 (FragTrap) | whoAmI, attack (ScavTrap) |
-
-## 🎓 Diamond Problem Çözümü
-
-DiamondTrap sınıfında karşılaşılan Diamond Problem:
-
-```cpp
-    ClapTrap
-   /        \
-ScavTrap   FragTrap
-   \        /
-   DiamondTrap
-```
-
-**Sorun:** DiamondTrap, ClapTrap'e iki farklı yoldan erişiyor.
-**Çözüm:** Virtual inheritance kullanarak tek bir ClapTrap instance'ı sağlamak.
-
-```cpp
-class ScavTrap : virtual public ClapTrap { ... };
-class FragTrap : virtual public ClapTrap { ... };
-class DiamondTrap : public ScavTrap, public FragTrap { ... };
-```
-
-## 🔧 Constructor/Destructor Sırası
-
-### Oluşturma Sırası (Construction):
-1. ClapTrap constructor
-2. ScavTrap constructor  
-3. FragTrap constructor
-4. DiamondTrap constructor
-
-### Yok Etme Sırası (Destruction):
-1. DiamondTrap destructor
-2. FragTrap destructor
-3. ScavTrap destructor
-4. ClapTrap destructor
 
 ## 📝 Notlar
 
-- Tüm kod C++98 standardına uygun yazılmıştır
-- Virtual inheritance diamond problem için kullanılmıştır
-- Protected members kalıtım için uygun erişim sağlar
-- Multiple inheritance dikkatli bir şekilde implement edilmiştir
-- Function overriding ile polymorphic behavior sağlanmıştır
-- Orthodox Canonical Form her sınıf için uygulanmıştır
-- Memory management RAII prensiplerine göre yapılmıştır
-- Constructor initialization list doğru sırayla kullanılmıştır
+- **Virtual Destructor**: Polimorfik sınıflarda mutlaka sanal destructor kullanın
+- **Memory Management**: Dynamic allocation kullanıldığında dikkatli bellek yönetimi
+- **Pure Virtual Functions**: Sınıfı abstract yapar, doğrudan instantiation'a izin vermez
+- **Interface Segregation**: Küçük ve spesifik arayüzler tercih edilir
+- **RAII**: Resource Acquisition Is Initialization prensibi
+- **Exception Safety**: Copy constructor ve assignment operator'da güvenlik
+- **Virtual Function Table**: V-table'ın nasıl çalıştığını anlayın
+- **Slicing Problem**: Base class'a derived class atarken dikkat edin
+
+## ⚠️ Yaygın Hatalar
+
+1. **Virtual Destructor Unutma**: Memory leak'lere neden olur
+2. **Shallow Copy**: Pointer'ların sadece adreslerinin kopyalanması
+3. **Self Assignment**: `operator=`'da kendine atama kontrolü
+4. **Pure Virtual**: Abstract class'tan nesne oluşturma denemesi
+5. **Resource Leak**: Constructor'da exception durumunda bellek sızıntısı
+6. **Dangling Pointer**: Silinmiş nesneye işaret eden pointer'lar

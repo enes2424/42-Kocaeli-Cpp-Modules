@@ -1,19 +1,31 @@
-#include "ClapTrap.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-int	main()
+int main()
 {
-	ClapTrap john("John Doe");
-	ClapTrap chuck("Chuck Norris");
-	ClapTrap foreign;
-	foreign = chuck;
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
 
-	john.attack("Chuck Norris");
-	chuck.takeDamage(john.getAttackDamage());
-	chuck.takeDamage(20);
-	chuck.attack("Me");
-	chuck.beRepaired(2);
-	chuck.takeDamage(10);
-	foreign.attack("John Doe");
-	john.takeDamage(foreign.getAttackDamage());
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound(); //will output the cat sound!
+	j->makeSound();
+	meta->makeSound();
+
+	delete	meta;
+	delete	j;
+	delete	i;
+
+	std::cout << std::endl << "~~~~WRONG~~~~" << std::endl << std::endl;
+
+	const WrongAnimal* k = new WrongCat();
+
+	std::cout << k->getType() << " " << std::endl;
+	k->makeSound(); //will output the wronganimal sound!
+
+	delete	k;
+
 	return 0;
 }

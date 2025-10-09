@@ -1,14 +1,14 @@
-SRCS	= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRCS	= main.cpp Animal.cpp WrongAnimal.cpp Dog.cpp Cat.cpp WrongCat.cpp Brain.cpp
 
 C++ = c++
 RM = rm -f
 FLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = RepetitiveWork
+NAME = AbstractClass
 
 all : $(NAME)
 
-$(NAME) : ClapTrap.hpp ScavTrap.hpp FragTrap.hpp $(SRCS)
-		$(C++) $(FLAGS) $(SRCS) -o $(NAME)
+$(NAME) : Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp $(SRCS)
+	$(C++) $(FLAGS) $(SRCS) -o $(NAME)
 
 clean :
 	$(RM) $(NAME)

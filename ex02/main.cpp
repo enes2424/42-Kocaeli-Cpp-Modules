@@ -1,23 +1,41 @@
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-int	main()
+int main()
 {
-	FragTrap john("John Doe");
-	FragTrap idiot(john);
-	ScavTrap chuck("Chuck Norris");
-	FragTrap enes("Enes");
-	FragTrap foreign;
-	foreign = enes;
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
 
-	john.attack("Chuck Norris");
-	chuck.takeDamage(john.getAttackDamage());
-	chuck.attack("Me");
-	chuck.guardGate();
-	chuck.beRepaired(20);
-	chuck.takeDamage(100);
-	foreign.attack("John Doe");
-	john.takeDamage(foreign.getAttackDamage());
-	foreign.highFivesGuys();
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound(); //will output the cat sound!
+	j->makeSound();
+
+	delete	j;
+	delete	i;
+
+	std::cout << std::endl << "~~~~WRONG~~~~" << std::endl << std::endl;
+
+	const WrongAnimal* k = new WrongCat();
+
+	std::cout << k->getType() << " " << std::endl;
+	k->makeSound(); //will output the wronganimal sound!
+
+	delete	k;
+
+	std::cout << std::endl << "~~~~IDontWantToSetTheWorldOnFire~~~~" << std::endl << std::endl;
+
+	Animal	*animals[8];
+
+	for (int i = 0; i < 4; i++)
+		animals[i] = new Dog();
+
+	for (int i = 4; i < 8; i++)
+		animals[i] = new Cat();
+
+	for (int i = 0; i < 8; i++)
+		delete animals[i];
+
 	return 0;
 }
