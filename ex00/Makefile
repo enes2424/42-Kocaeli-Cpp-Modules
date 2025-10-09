@@ -7,7 +7,7 @@ NAME = BraiiiiiiinnnzzzZ
 
 all : $(NAME)
 
-$(NAME) : Zombie.hpp
+$(NAME) : Zombie.hpp $(SRCS)
 		$(C++) $(FLAGS) $(SRCS) -o $(NAME)
 
 clean :

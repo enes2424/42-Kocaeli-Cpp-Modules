@@ -7,7 +7,7 @@ NAME = UzulmekKaybedenlerIcindir
 
 all : $(NAME)
 
-$(NAME) :
+$(NAME) : $(SRCS)
 		$(C++) $(FLAGS) $(SRCS) -o $(NAME)
 
 clean :

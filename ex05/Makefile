@@ -7,7 +7,7 @@ NAME = Harl2.0
 
 all : $(NAME)
 
-$(NAME) : Harl.hpp
+$(NAME) : Harl.hpp $(SRCS)
 		$(C++) $(FLAGS) $(SRCS) -o $(NAME)
 
 clean :

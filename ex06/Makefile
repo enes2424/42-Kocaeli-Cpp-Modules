@@ -7,7 +7,7 @@ NAME = harlFilter
 
 all : $(NAME)
 
-$(NAME) : Harl.hpp
+$(NAME) : Harl.hpp $(SRCS)
 		$(C++) $(FLAGS) $(SRCS) -o $(NAME)
 
 clean :

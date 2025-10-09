@@ -7,7 +7,7 @@ NAME = GereksizSiddet
 
 all : $(NAME)
 
-$(NAME) : Weapon.hpp HumanA.hpp HumanB.hpp
+$(NAME) : Weapon.hpp HumanA.hpp HumanB.hpp $(SRCS)
 		$(C++) $(FLAGS) $(SRCS) -o $(NAME)
 
 clean :
