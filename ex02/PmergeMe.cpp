@@ -154,7 +154,7 @@ void	PmergeMe::exec(int argc, char **argv) {
 	cout << "Before:\t";
 	for (i = 0; i < argc; i++)
 		cout << arr[i] << " ";
-	cout << endl << std::fixed << std::setprecision(5);
+	cout << endl;
 
 	start = clock();
 	{
@@ -182,7 +182,7 @@ void	PmergeMe::exec(int argc, char **argv) {
 	cout << "After:\t";
 	for (i = 0; i < argc; i++)
 		cout << arr[i] << " ";
-	cout << endl;
+	cout << endl << std::fixed << std::setprecision(5);
 	
 	delete[] arr;
 	cout << "Time to process a range of " << argc << " elements with std::vector : " << vector_elapsed_seconds << " us" << endl;
