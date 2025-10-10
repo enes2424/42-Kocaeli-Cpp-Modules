@@ -139,7 +139,7 @@ void	PmergeMe::exec(int argc, char **argv) {
 	if (argc == 0)
 		throw runtime_error("Error");
 
-	int		*arr = new int[argc], i = 0;
+	int		*arr = new int[argc], i = 0, j, tmp;
 	clock_t	start, end;
 
 	for (; i < argc; i++) {
@@ -162,9 +162,6 @@ void	PmergeMe::exec(int argc, char **argv) {
 		for (i = 0; i < argc; i++)
 			vector.push_back(arr[i]);
 		ford_johnson_sort(vector);
-		
-		for (i = 0; i < argc; i++)
-			arr[i] = vector[i];
 	}
 	end = clock();
 	double vector_elapsed_seconds = double(end - start) / CLOCKS_PER_SEC;
@@ -180,9 +177,16 @@ void	PmergeMe::exec(int argc, char **argv) {
 	double deque_elapsed_seconds = double(end - start) / CLOCKS_PER_SEC;
 	
 	cout << "After:\t";
-	for (i = 0; i < argc; i++)
+	for (i = 0; i < argc - 1; i++) {
+		for (j = i + 1; j < argc; j++)
+			if (arr[j] < arr[i]) {
+				tmp = arr[j];
+				arr[j] = arr[i];
+				arr[i] = tmp;
+			}
 		cout << arr[i] << " ";
-	cout << endl << std::fixed << std::setprecision(5);
+	}
+	cout << arr[i] << endl << std::fixed << std::setprecision(5);
 	
 	delete[] arr;
 	cout << "Time to process a range of " << argc << " elements with std::vector : " << vector_elapsed_seconds << " us" << endl;
