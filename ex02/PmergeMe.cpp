@@ -15,9 +15,9 @@ static int	special_atoi(char *str) {
 		if (str[i] < '0' || str[i] > '9')
 			throw runtime_error("Error");
 		num = 10 * num + str[i] - 48;
-		if (num > 2147483647)
-			throw runtime_error("Error");
 	}
+	if (num > 2147483647)
+		throw runtime_error("Error");
 	return num;
 }
 
