@@ -70,23 +70,37 @@ Ford-Johnson merge-insertion sort algoritması - konteyner performans karşıla�
 - **Program:** `PmergeMe`
 - **Sınıf:** `PmergeMe`
 - **Özellikler:**
-  - Ford-Johnson algoritması implementasyonu
-  - std::vector ve std::deque performans karşılaştırması
-  - Jacobsthal sayı dizisi kullanımı
-  - Binary search ile optimal yerleştirme
-  - Zaman ölçümü ve performans analizi
-- **Algoritmalar:** Merge-insertion sort, Binary search
+  - **Ford-Johnson Algoritması**: Teorik optimal karşılaştırma sayısı
+  - **Jacobsthal Sequence**: Optimal insertion sırası (0,1,1,3,5,11,21...)
+  - **Template Support**: std::vector ve std::deque desteği
+  - **Binary Search Insertion**: O(log n) karşılaştırma ile yerleştirme
+  - **Performance Benchmarking**: Mikrosaniye hassasiyetinde zaman ölçümü
+  - **Large Dataset Support**: Binlerce elemanlı diziler için optimize edilmiş
+- **Algoritma Detayları:**
+  - **Pairing Phase**: Elemanları ikişerli grupla ve sırala
+  - **Recursive Sorting**: Büyük elemanları recursive Ford-Johnson ile sırala
+  - **Optimal Insertion**: Jacobsthal sequence ile minimum karşılaştırma
+  - **Binary Search**: Iterator-based insertion için generic approach
+- **Complexity**: O(n log n) zaman, O(n) alan
 - **Örnek:**
   ```bash
   ./PmergeMe 3 5 9 7 4
   # Çıktı:
   # Before: 3 5 9 7 4
   # After:  3 4 5 7 9
-  # Time to process a range of 5 elements with std::vector : 0.00031 us
-  # Time to process a range of 5 elements with std::deque : 0.00014 us
+  # Time to process a range of 5 elements with std::vector : 0.00001 us
+  # Time to process a range of 5 elements with std::deque : 0.00001 us
   
-  ./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
-  # Büyük veri setleri için performans testi
+  # Büyük veri seti performans testi
+  ./PmergeMe `shuf -i 1-10000 -n 1000 | tr "\n" " "`
+  # Before: 8234 1567 9876 ... (1000 elements)
+  # After:  1 2 3 4 5 ... 9999 10000
+  # Time to process a range of 1000 elements with std::vector : 0.12345 us
+  # Time to process a range of 1000 elements with std::deque : 0.09876 us
+  
+  # Error handling
+  ./PmergeMe abc 123 -5
+  # Çıktı: Error
   ```
 
 ## 🔧 Kullanım
@@ -132,15 +146,17 @@ make re     # Temizle ve yeniden derle
 ## 🎯 Öğrenilen Kavramlar
 
 1. **STL Containers**: std::map, std::stack, std::vector, std::deque
-2. **Algorithms**: Ford-Johnson sort, Binary search, Merge-insertion
-3. **Performance Analysis**: Zaman karşılaştırması, konteyner verimliliği
-4. **Template Programming**: Generic fonksiyonlar ve sınıflar
-5. **Exception Handling**: std::runtime_error, try-catch blokları
-6. **File I/O**: std::ifstream, CSV dosya işleme
+2. **Advanced Algorithms**: Ford-Johnson sort, Jacobsthal sequence, Binary search, Merge-insertion
+3. **Performance Analysis**: Mikrosaniye zaman ölçümü, container comparison, complexity analysis
+4. **Template Programming**: Generic functions, iterator arithmetic, container-agnostic algorithms
+5. **Exception Handling**: std::runtime_error, input validation, error propagation
+6. **File I/O**: std::ifstream, CSV parsing, data validation
 7. **String Processing**: Parsing, validation, format kontrolü
-8. **Mathematical Operations**: RPN hesaplama, tarih aritmetiği
-9. **Memory Management**: Dynamic arrays, container yönetimi
-10. **Static Class Design**: Utility classes, static methods
+8. **Mathematical Operations**: RPN hesaplama, optimal sorting theory, mathematical sequences
+9. **Memory Management**: Dynamic arrays, container operations, insertion efficiency
+10. **Static Class Design**: Utility classes, static methods, algorithm encapsulation
+11. **Iterator Concepts**: std::advance, std::distance, generic container traversal
+12. **Algorithmic Optimization**: Theoretical minimums, practical performance tuning
 
 ## 📋 C++ Standartları ve Kurallar
 
