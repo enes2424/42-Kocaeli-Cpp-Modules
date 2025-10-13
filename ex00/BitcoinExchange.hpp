@@ -5,29 +5,30 @@
 #include <fstream>
 #include <map>
 
+using std::cin;
 using std::cout;
 using std::endl;
-using std::cin;
-using std::getline;
-using std::string;
-using std::map;
-using std::ifstream;
-using std::runtime_error;
 using std::exception;
+using std::getline;
+using std::ifstream;
+using std::map;
+using std::runtime_error;
+using std::string;
 
-class BitcoinExchange {
-	private:
-		map<double, double> datas;
-	public:
-		BitcoinExchange(void);
-		BitcoinExchange(const BitcoinExchange &other);
-		BitcoinExchange	&operator=(const BitcoinExchange &other);
-		~BitcoinExchange(void);
-		double	stod(string str);
-		double	getDateToInt(string date, string ctrl);
-		void	controlAndAddDay(double &num, double day, bool &is_valid, int upperLimit);
-		void	exec(char *str);
-		int		doubleMod(double num, int mod);
+class BitcoinExchange
+{
+	map<double, double> datas;
+
+public:
+	BitcoinExchange(void);
+	BitcoinExchange(const BitcoinExchange &other);
+	BitcoinExchange &operator=(const BitcoinExchange &other);
+	~BitcoinExchange(void);
+	double stod(string str);
+	double getDateToInt(string date, string ctrl);
+	void controlAndAddDay(double &num, double day, bool &is_valid, int upperLimit);
+	void exec(char *str);
+	int doubleMod(double num, int mod);
 };
 
 #endif

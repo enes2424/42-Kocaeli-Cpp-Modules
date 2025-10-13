@@ -8,24 +8,27 @@
 #include <algorithm>
 #include <cstring>
 
-using std::cout;
-using std::endl;
-using std::string;
-using std::clock_t;
 using std::clock;
+using std::clock_t;
+using std::cout;
+using std::deque;
+using std::endl;
 using std::exception;
-using std::runtime_error;
 using std::pair;
+using std::runtime_error;
+using std::string;
 using std::strlen;
+using std::vector;
 
-class PmergeMe {
-	private:
-		PmergeMe(void);
-		PmergeMe(const PmergeMe &other);
-		PmergeMe	&operator=(const PmergeMe &other);
-		~PmergeMe(void);
-	public:
-		static void	exec(int argc, char **argv);
+class PmergeMe
+{
+	PmergeMe(void);
+	PmergeMe(const PmergeMe &other);
+	PmergeMe &operator=(const PmergeMe &other);
+	~PmergeMe(void);
+
+public:
+	static void exec(int argc, char **argv);
 };
 
 #endif
