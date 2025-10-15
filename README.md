@@ -18,7 +18,7 @@
 | [cpp06][cpp06_tree]  | [![cpp06_badge]][cpp06_tree]  |
 | [cpp07][cpp07_tree]  | [![cpp07_badge]][cpp07_tree]  |
 | [cpp08][cpp08_tree]  | [![cpp08_badge]][cpp08_tree]  |
-| [cpp09][cpp09_tree]  | [![waiting_badge]][cpp09_tree]|
+| [cpp09][cpp09_tree]  | [![cpp09_badge]][cpp09_tree]|
 
 </td></tr>
 
@@ -40,7 +40,6 @@
 [cpp07_badge]: https://custom-icon-badges.demolab.com/badge/✔%EF%B8%8E%20100%20/%20100-02b331.svg?&style=for-the-badge&color=018f27
 [cpp08_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules/tree/42-Kocaeli-Cpp-8
 [cpp08_badge]: https://custom-icon-badges.demolab.com/badge/✔%EF%B8%8E%20100%20/%20100-02b331.svg?&style=for-the-badge&color=018f27
-[waiting_badge]: https://img.shields.io/badge/Waiting...-FFCC00?style=for-the-badge&logoColor=white
 [cpp09_tree]: https://github.com/enes2424/42-Kocaeli-Cpp-Modules/tree/42-Kocaeli-Cpp-9
 [cpp09_badge]: https://custom-icon-badges.demolab.com/badge/✔%EF%B8%8E%20100%20/%20100-02b331.svg?&style=for-the-badge&color=018f27
 
